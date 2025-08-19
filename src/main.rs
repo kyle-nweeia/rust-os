@@ -1,10 +1,19 @@
 #![no_main]
 #![no_std]
 
+mod console;
+mod console_data;
+mod lock;
 mod print;
+
+use crate::console::ConsoleStatistics;
 
 fn main() -> ! {
     println!("Hello, world!");
+    println!(
+        "Characters written: {}",
+        crate::console::Console::get().chars_written()
+    );
     panic!();
 }
 
